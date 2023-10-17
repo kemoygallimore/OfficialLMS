@@ -153,6 +153,9 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Pages\LeaveRequests.aspx" />
     <Content Include="Pages\SubmitLeave.aspx" />
+    <Content Include="Pages\LookupLeave.aspx" />
+    <Content Include="Pages\LeaveAllotments.aspx" />
+    <Content Include="Pages\CancelLeave.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -245,6 +248,27 @@
     </Compile>
     <Compile Include="Pages\SubmitLeave.aspx.designer.cs">
       <DependentUpon>SubmitLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LookupLeave.aspx.cs">
+      <DependentUpon>LookupLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LookupLeave.aspx.designer.cs">
+      <DependentUpon>LookupLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LeaveAllotments.aspx.cs">
+      <DependentUpon>LeaveAllotments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LeaveAllotments.aspx.designer.cs">
+      <DependentUpon>LeaveAllotments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CancelLeave.aspx.cs">
+      <DependentUpon>CancelLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CancelLeave.aspx.designer.cs">
+      <DependentUpon>CancelLeave.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
