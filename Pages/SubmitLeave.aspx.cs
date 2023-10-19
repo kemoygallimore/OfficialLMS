@@ -17,6 +17,7 @@ namespace LMS48
         string lname = string.Empty;
         string date;
         LoadFromDatabase database = new LoadFromDatabase();
+        Show_HideCalendar calendar = new Show_HideCalendar();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -50,18 +51,12 @@ namespace LMS48
 
         protected void SimageButton_Click(object sender, ImageClickEventArgs e)
         {
-            if (SdateCalendar.Visible)
-                SdateCalendar.Visible = false;
-            else
-                SdateCalendar.Visible = true;
+            calendar.display(SdateCalendar);
         }
 
         protected void EimageButton_Click(object sender, ImageClickEventArgs e)
         {
-            if (EdateCalendar.Visible)
-                EdateCalendar.Visible = false;
-            else
-                EdateCalendar.Visible = true;
+            calendar.display(EdateCalendar);
         }
 
         protected void SdateCalendar_SelectionChanged(object sender, EventArgs e)
