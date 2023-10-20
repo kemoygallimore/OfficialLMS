@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CancelLeave.aspx.cs" Inherits="LMS48.CancelLeave" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Cancel Leave</h1>
     <div>
         <div style="display:grid;grid-template-columns: 1fr 2fr">
             <div>
@@ -9,18 +8,26 @@
                     <asp:Label ID="Label2" runat="server" Text="Leave Type"></asp:Label>
                     <asp:DropDownList ID="LeaveTyppeDropdown" runat="server"></asp:DropDownList>
                 </p>
-                <p>
-                    <asp:Label ID="Label3" runat="server" Text="Start Date"></asp:Label>
-                    <asp:TextBox ID="Sdatetxtbx" runat="server"></asp:TextBox>
-                    <asp:ImageButton ID="sbutton" runat="server" OnClick="sbutton_Click" />
-                    <asp:Calendar ID="sdatecal" runat="server" OnSelectionChanged="sdatecal_SelectionChanged" Visible="false"></asp:Calendar>
-                </p>
-                <p>
+                <div>
+                    <asp:Label ID="Label3" runat="server" Text="Start Date"></asp:Label>                    
+                    <span class="textcal">
+                        <asp:TextBox ID="Sdatetxtbx" runat="server"></asp:TextBox>
+                        <asp:ImageButton ID="sbutton" runat="server" OnClick="sbutton_Click" ImageUrl="~/Assets/img/calendar.png" />
+                    </span>
+                    <div class="fire">
+                    <asp:Calendar ID="sdatecal" runat="server" OnSelectionChanged="sdatecal_SelectionChanged" Visible="false" ></asp:Calendar>
+                    </div>
+                </div>
+                <div>
                     <asp:Label ID="Label4" runat="server" Text="End Date"></asp:Label>
-                    <asp:TextBox ID="Edattxtbx" runat="server"></asp:TextBox>
-                    <asp:ImageButton ID="ebutton" runat="server" OnClick="ebutton_Click" />
+                    <span class="textcal">
+                        <asp:TextBox ID="Edattxtbx" runat="server"></asp:TextBox>
+                        <asp:ImageButton ID="ebutton" runat="server" OnClick="ebutton_Click" ImageUrl="~/Assets/img/calendar.png" />
+                    </span>                    
+                    <div class="fire">
                     <asp:Calendar ID="edatecal" runat="server" OnSelectionChanged="edatecal_SelectionChanged" Visible="false"></asp:Calendar>
-                </p>
+                    </div>
+                </div>
                 <p>
                     <asp:Label ID="Label1" runat="server" Text="Attachments"></asp:Label>
                     <asp:FileUpload ID="FileUpload1" runat="server" />

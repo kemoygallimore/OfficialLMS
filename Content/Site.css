@@ -19,7 +19,9 @@ textarea {
         padding: 0;
     }
 }
-
+div{
+    position:relative;
+}
 
 :root {
     --bg-color: #005A85;
@@ -186,10 +188,7 @@ h1, h1, h3, h4, h5 {
 
 select, input {
     width: 145px;
-    box-shadow: 3px 3px 10px -2px;
     border: none;
-    padding: 1px 5px;
-    border-radius: 5px;
 }
 
 textarea {
@@ -206,6 +205,12 @@ input[type="file" i] {
     padding: 0;
 }
 
+input[type="image" i]{
+    width:23px;
+    margin-bottom:-5px
+}
+
+
 .btn {
     padding: 7px 20px
 }
@@ -217,9 +222,21 @@ input[type="file" i] {
 .fire {
     position: absolute !important;
     background: var(--lightBlue);
+    box-shadow: black 0px 0px 40px 0px;
+    top: 32px;
+    left: 10px;
+    padding: 7px;
+    border-radius: 18px;
+    overflow: hidden;
+
 }
 
 .UpdateSection{
     display: grid;
     grid-template-columns: auto auto auto auto;
+}
+
+.textcal {
+    background: white;
+    padding: 3px 2px 3px 0px;
 }
