@@ -23,14 +23,18 @@
             <p>
                 <asp:Label ID="Label4" runat="server" Text="Start Date"></asp:Label>
                 <asp:TextBox ID="SdateTxtBx" runat="server"></asp:TextBox>  <asp:ImageButton ID="SimageButton" runat="server" OnClick="SimageButton_Click" />
-                <asp:Calendar ID="SdateCalendar" runat="server" OnSelectionChanged="SdateCalendar_SelectionChanged" Visible="False"></asp:Calendar>
+                <asp:Panel ID="Spanel" runat="server" Visible="false" CssClass="CalenderPanels">
+                    <asp:Calendar ID="SdateCalendar" runat="server" OnSelectionChanged="SdateCalendar_SelectionChanged" Visible="False"></asp:Calendar>
+                </asp:Panel>
             </p>
         </div>
         <div>
             <p>
                 <asp:Label ID="Label5" runat="server" Text="End Date"></asp:Label>
                 <asp:TextBox ID="EdateTxtBx" runat="server"></asp:TextBox>  <asp:ImageButton ID="EimageButton" runat="server" OnClick="EimageButton_Click" />
-                <asp:Calendar ID="EdateCalendar" runat="server" OnSelectionChanged="EdateCalendar_SelectionChanged" Visible="False"></asp:Calendar>
+                <asp:Panel ID="Epanel" runat="server" Visible="false" CssClass="CalenderPanels">
+                    <asp:Calendar ID="EdateCalendar" runat="server" OnSelectionChanged="EdateCalendar_SelectionChanged"></asp:Calendar>
+                </asp:Panel>
             </p>
         </div>
         <div>

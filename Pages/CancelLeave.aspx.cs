@@ -21,12 +21,12 @@ namespace LMS48
 
         protected void sbutton_Click(object sender, ImageClickEventArgs e)
         {
-            calendar.display(sdatecal);
+            calendar.display(SPanel);
         }
 
         protected void ebutton_Click(object sender, ImageClickEventArgs e)
         {
-            calendar.display(edatecal);
+            calendar.display(EPanel);
         }
 
         protected void sdatecal_SelectionChanged(object sender, EventArgs e)

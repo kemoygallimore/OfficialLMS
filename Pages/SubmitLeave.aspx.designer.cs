@@ -114,6 +114,15 @@ namespace LMS48
         protected global::System.Web.UI.WebControls.ImageButton SimageButton;
 
         /// <summary>
+        /// Spanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Spanel;
+
+        /// <summary>
         /// SdateCalendar control.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,15 @@ namespace LMS48
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton EimageButton;
+
+        /// <summary>
+        /// Epanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Epanel;
 
         /// <summary>
         /// EdateCalendar control.

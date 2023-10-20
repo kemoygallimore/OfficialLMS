@@ -14,9 +14,10 @@
                         <asp:TextBox ID="Sdatetxtbx" runat="server"></asp:TextBox>
                         <asp:ImageButton ID="sbutton" runat="server" OnClick="sbutton_Click" ImageUrl="~/Assets/img/calendar.png" />
                     </span>
-                    <div class="fire">
-                    <asp:Calendar ID="sdatecal" runat="server" OnSelectionChanged="sdatecal_SelectionChanged" Visible="false" ></asp:Calendar>
-                    </div>
+                    <asp:Panel ID="SPanel" runat="server" Visible="false" CssClass="CalenderPanels">
+                        <asp:Calendar ID="sdatecal" runat="server" OnSelectionChanged="sdatecal_SelectionChanged" ></asp:Calendar>
+                    </asp:Panel>
+                    
                 </div>
                 <div>
                     <asp:Label ID="Label4" runat="server" Text="End Date"></asp:Label>
@@ -24,9 +25,9 @@
                         <asp:TextBox ID="Edattxtbx" runat="server"></asp:TextBox>
                         <asp:ImageButton ID="ebutton" runat="server" OnClick="ebutton_Click" ImageUrl="~/Assets/img/calendar.png" />
                     </span>                    
-                    <div class="fire">
-                    <asp:Calendar ID="edatecal" runat="server" OnSelectionChanged="edatecal_SelectionChanged" Visible="false"></asp:Calendar>
-                    </div>
+                    <asp:Panel ID="EPanel" runat="server">
+                        <asp:Calendar ID="edatecal" runat="server" OnSelectionChanged="edatecal_SelectionChanged"></asp:Calendar>
+                    </asp:Panel>
                 </div>
                 <p>
                     <asp:Label ID="Label1" runat="server" Text="Attachments"></asp:Label>
