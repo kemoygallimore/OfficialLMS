@@ -91,7 +91,7 @@ namespace LMS48
         protected void Submitbtn_Click(object sender, EventArgs e)
         {            
             ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal(\"Success\", \"Your Leave Request Have Been Submitted!\", \"success\");\r\n", true);
-            Response.Redirect("/Pages/SubmitLeave.aspx");
+            //Response.Redirect("/Pages/SubmitLeave.aspx");
         }
 
         protected void Clearbtn_Click(object sender, EventArgs e)

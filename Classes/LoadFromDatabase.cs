@@ -9,7 +9,7 @@ namespace LMS48.Classes
 {
     public class LoadFromDatabase
     {
-        public string connection = " data source=kemoyslenovo\\sqlexpress;initial catalog=LeaveManagementSystem;integrated Security=true";
+        public string connection = " data source=DESKTOP-3A12015\\\sqlexpress;initial catalog=LeaveManagementSystem;integrated Security=true";
         public LoadFromDatabase() { }
 
         public void LoadAllRequests(GridView gridView)
