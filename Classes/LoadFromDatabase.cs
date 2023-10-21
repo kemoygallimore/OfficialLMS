@@ -57,6 +57,21 @@ namespace LMS48.Classes
                 }
             }
         }
+        public void BindCancelReasonDropdown(DropDownList dropDown)
+        {
+            using (SqlConnection con = new SqlConnection(connection))
+            {
+                con.Open();
+                using (SqlCommand command = new SqlCommand("Select * from CancelationReasons",con))
+                {
+                    SqlDataReader rdr = command.ExecuteReader();
+                    dropDown.DataSource = rdr;
+                    dropDown.DataValueField= "id";
+                    dropDown.DataTextField= "reason";
+                    dropDown.DataBind();
+                }
+            }
+        }
 
     }
 }

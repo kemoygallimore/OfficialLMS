@@ -24,13 +24,13 @@ namespace LMS48
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// LeaveTyppeDropdown control.
+        /// LeaveTypeDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList LeaveTyppeDropdown;
+        protected global::System.Web.UI.WebControls.DropDownList LeaveTypeDropdown;
 
         /// <summary>
         /// Label3 control.
@@ -168,13 +168,13 @@ namespace LMS48
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// CancelReasonDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList CancelReasonDropdown;
 
         /// <summary>
         /// AllRequestsGridview control.

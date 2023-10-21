@@ -16,6 +16,12 @@ namespace LMS48
         TimeSpan difference;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                
+                database.BindLeaveTypeDropdown(LeaveTypeDropdown);
+                database.BindCancelReasonDropdown(CancelReasonDropdown);
+            }
             database.LoadAllRequests(AllRequestsGridview);
         }
 
