@@ -9,7 +9,7 @@ namespace LMS48.Classes
 {
     public class LoadFromDatabase
     {
-        public string connection = " data source=DESKTOP-3A12015\\\sqlexpress;initial catalog=LeaveManagementSystem;integrated Security=true";
+        public string connection = " data source=DESKTOP-3A12015\\sqlexpress;initial catalog=LeaveManagementSystem;integrated Security=true";
         public LoadFromDatabase() { }
 
         public void LoadAllRequests(GridView gridView)
@@ -17,7 +17,7 @@ namespace LMS48.Classes
             using(SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("Select * from ViewAll", con))
+                using (SqlCommand cmd = new SqlCommand("Select * from ViewAll order by SubmissionDate DESC", con))
                 {
                     SqlDataReader dr = cmd.ExecuteReader();
                     gridView.DataSource = dr;

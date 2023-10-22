@@ -17,9 +17,10 @@
                     <asp:DropDownList ID="LeaveStatusDropdown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="LeaveStatusDropdown_SelectedIndexChanged"></asp:DropDownList>
                 </div>
                 
-                <p>
+                <div class="submit_clear_btn">
                     <asp:Button ID="Updatebtn" runat="server" Text="Update" OnClick="Updatebtn_Click" />
-                </p>
+                    <asp:Button ID="CancelBtn" runat="server" Text="Cancel" OnClick="CancelBtn_Click" />
+                </div>
            
         </div>
         <div>

@@ -127,7 +127,7 @@ h1, h1, h3, h4, h5 {
 }
 
 .rightSection {
-    margin-left: 300px;
+    margin-left: 250px;
 }
 
 .grid {
@@ -255,7 +255,7 @@ input[type="submit" i]{
 
 .upperFormEntries {
     display: grid;
-    grid-template-columns: 150px auto;
+    grid-template-columns: 115px auto;
     gap: 15px 0px
 }
 
@@ -269,4 +269,10 @@ input[type="submit" i]{
     display: flex;
     flex-direction: row;
     gap: 20px;
+}
+
+.ting {
+    display:grid;
+    grid-template-columns:110px auto;
+    gap:20px 0px;
 }

@@ -71,6 +71,9 @@ namespace LMS48
             database.LoadAllRequests(LeaveRequestsGV);
         }
 
-        
+        protected void CancelBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

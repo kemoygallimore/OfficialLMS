@@ -46,6 +46,10 @@
                 <div>
                     <asp:TextBox ID="Commentstxtbx" runat="server" Columns="30" Rows="5" TextMode="MultiLine"></asp:TextBox>
                 </div>
+                <div class="submit_clear_btn">
+                    <asp:Button ID="Updatebtn" runat="server" Text="Update" OnClick="Updatebtn_Click" />
+                    <asp:Button ID="CancelBtn" runat="server" Text="Cancel" OnClick="CancelBtn_Click" />
+                </div>
                     
             </div>
         </div>
@@ -57,6 +61,7 @@
                 <asp:GridView ID="AllRequestsGridview" runat="server" AutoGenerateColumns="False" Width="100%">
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="#" />
+                        <asp:BoundField DataField="SubmissionDate" HeaderText="Date Submitted" DataFormatString="{0:MMM/dd/yyyy}" />
                         <asp:BoundField DataField="EmployeeID" HeaderText="ID#" />
                         <asp:BoundField DataField="Full Name" HeaderText="Name" />
                         <asp:BoundField DataField="type" HeaderText="Type" />

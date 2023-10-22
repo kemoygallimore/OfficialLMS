@@ -10,7 +10,7 @@
             <asp:Button ID="CheckID" runat="server" Text="Verify ID" OnClick="CheckID_Click" />
         </div>
         <div>
-             <asp:Label ID="Label2" runat="server" Text="Employee Name"></asp:Label>
+             <asp:Label ID="Label2" runat="server" Text="Name"></asp:Label>
         </div>
         <div>
             <asp:TextBox ID="EmpNameTxtBx" runat="server" ReadOnly="true"></asp:TextBox>
@@ -43,7 +43,7 @@
             </asp:Panel>
         </div>
         <div>
-            <asp:Label ID="Label6" runat="server" Text="Number of Days: "></asp:Label>  
+            <asp:Label ID="Label6" runat="server" Text="# of Days: "></asp:Label>  
         </div>
         <div>
             <asp:Label ID="numdayslbl" runat="server" Text="Label" Visible="false"></asp:Label>
