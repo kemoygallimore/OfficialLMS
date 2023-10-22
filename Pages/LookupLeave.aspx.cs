@@ -12,14 +12,18 @@ namespace LMS48
     {
         LoadFromDatabase database = new LoadFromDatabase();
         Show_HideCalendar calendar = new Show_HideCalendar();
+        string test = string.Empty;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            test = ((Label)Master.FindControl("EmpIdlbl")).Text;
+            if (!IsPostBack)
             {
                 database.BindLeavestatusDrowpdown(LeaveStatusDropdown);
                 database.BindLeaveTypeDropdown(LeaveTypeDropdown);
             }
-            database.LoadAllRequests(leaveRequestGV);
+            //database.LoadAllRequests(leaveRequestGV);
+            database.LoadEmployeeRequests(leaveRequestGV, test);
         }
 
         protected void sbutton_Click(object sender, ImageClickEventArgs e)

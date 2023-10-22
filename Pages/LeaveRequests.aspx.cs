@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LMS48
 {
@@ -15,16 +16,16 @@ namespace LMS48
         LoadFromDatabase database = new LoadFromDatabase();
         int id;
         string dropdownselection;
+        string masterid = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 database.BindLeavestatusDrowpdown(LeaveStatusDropdown);
-                database.LoadAllRequests(LeaveRequestsGV);
             }
-            
-
+            masterid = ((Label)Master.FindControl("EmpIdlbl")).Text;
+            database.LoadAllStaff(LeaveRequestsGV, masterid);
         }
 
         protected void LeaveRequestsGV_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,7 +52,6 @@ namespace LMS48
         protected void LeaveStatusDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-
         }
 
         protected void Updatebtn_Click(object sender, EventArgs e)
@@ -62,7 +62,6 @@ namespace LMS48
             con.Open();
             using (SqlCommand sqlCommand = new SqlCommand("UpdateLeaveStatus", con))
             {
-
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@LeaveID", id);
                 sqlCommand.Parameters.AddWithValue("@newStatus", dropdownselection);

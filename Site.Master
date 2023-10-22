@@ -77,7 +77,7 @@
         </div>
         <div class="rightSection">
             <div class="LoginInfo">
-                <span>EmployeeId</span>
+                <span>EmployeeId:---</span><span><asp:Label ID="EmpIdlbl" runat="server" Text="1234"></asp:Label></span>
                 <span>Name</span>
                 <span>Department</span>
             </div>

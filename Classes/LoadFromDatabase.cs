@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -9,11 +10,9 @@ namespace LMS48.Classes
 {
     public class LoadFromDatabase
     {
-<<<<<<< HEAD
+
         public string connection = " data source=WINDOWS-10-PROG\\SQLEXPRESS;initial catalog=LeaveManagementSystem;integrated Security=true";
-=======
-        public string connection = " data source=DESKTOP-3A12015\\sqlexpress;initial catalog=LeaveManagementSystem;integrated Security=true";
->>>>>>> b50c971c075e3ed5e5f1223684e3e9cdcd260557
+
         public LoadFromDatabase() { }
 
         public void LoadAllRequests(GridView gridView)
@@ -26,6 +25,34 @@ namespace LMS48.Classes
                     SqlDataReader dr = cmd.ExecuteReader();
                     gridView.DataSource = dr;
                     gridView.DataBind();
+                }
+            }
+        }
+        public void LoadAllStaff(GridView gv, string id)
+        {
+            using (SqlConnection con = new SqlConnection(connection))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("Select * from ViewAll where EmployeeID <> @EmployeeID order by SubmissionDate DESC ", con))
+                {
+                    cmd.Parameters.AddWithValue("@EmployeeID", id);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    gv.DataSource = dr;
+                    gv.DataBind();
+                }
+            }
+        }
+        public void LoadEmployeeRequests(GridView gv, string lbl)
+        {
+            using (SqlConnection con = new SqlConnection(connection))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("Select * from ViewAll where EmployeeID = @EmployeeID order by SubmissionDate DESC ", con))
+                {
+                    cmd.Parameters.AddWithValue("@EmployeeID", lbl);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    gv.DataSource = dr;
+                    gv.DataBind();
                 }
             }
         }

@@ -4,7 +4,14 @@
    
     <div style="display:grid;grid-template-columns: min-content auto">
         <div>
+            
             <div class="upperFormEntries">
+                <div>
+                    <asp:Label ID="Label8" runat="server" Text="Leave ID"></asp:Label>
+                </div>
+                <div>
+                    <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                </div>
                 <div>
                     <asp:Label ID="Label2" runat="server" Text="Leave Type"></asp:Label>
                 </div>
@@ -25,7 +32,7 @@
                     <asp:Label ID="Label4" runat="server" Text="End Date"></asp:Label>
                 </div>
                 <div>
-                    <asp:TextBox ID="Edattxtbx" runat="server" CssClass="textcal"></asp:TextBox>
+                    <asp:TextBox ID="Edatetxtbx" runat="server" CssClass="textcal"></asp:TextBox>
                     <asp:ImageButton ID="ebutton" runat="server" OnClick="ebutton_Click" ImageUrl="~/Assets/img/calendar.png" />
                     <asp:Panel ID="EPanel" runat="server" Visible="false" CssClass="CalenderPanels">
                         <asp:Calendar ID="edatecal" runat="server" OnSelectionChanged="edatecal_SelectionChanged"></asp:Calendar>
@@ -58,7 +65,7 @@
                 <asp:Label ID="Label6" runat="server" Text="Cancellation Reason"></asp:Label><asp:DropDownList ID="CancelReasonDropdown" runat="server"></asp:DropDownList>
             </p>
             <p>
-                <asp:GridView ID="AllRequestsGridview" runat="server" AutoGenerateColumns="False" Width="100%">
+                <asp:GridView ID="AllRequestsGridview" runat="server" AutoGenerateColumns="False" Width="100%" OnSelectedIndexChanged="AllRequestsGridview_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="#" />
                         <asp:BoundField DataField="SubmissionDate" HeaderText="Date Submitted" DataFormatString="{0:MMM/dd/yyyy}" />
