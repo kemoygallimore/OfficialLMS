@@ -16,6 +16,12 @@ namespace LMS48
         TimeSpan difference;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                
+                database.BindLeaveTypeDropdown(LeaveTypeDropdown);
+                database.BindCancelReasonDropdown(CancelReasonDropdown);
+            }
             database.LoadAllRequests(AllRequestsGridview);
         }
 
@@ -33,14 +39,24 @@ namespace LMS48
         {
             date = sdatecal.SelectedDate.ToShortDateString();
             Sdatetxtbx.Text = date;
-            sdatecal.Visible = false;
+            SPanel.Visible = false;
         }
 
         protected void edatecal_SelectionChanged(object sender, EventArgs e)
         {
             date = edatecal.SelectedDate.ToShortDateString();
             Edattxtbx.Text = date;
-            edatecal.Visible = false;
+            EPanel.Visible = false;
+        }
+
+        protected void Updatebtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CancelBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,7 +9,11 @@ namespace LMS48.Classes
 {
     public class LoadFromDatabase
     {
+<<<<<<< HEAD
         public string connection = " data source=WINDOWS-10-PROG\\SQLEXPRESS;initial catalog=LeaveManagementSystem;integrated Security=true";
+=======
+        public string connection = " data source=DESKTOP-3A12015\\sqlexpress;initial catalog=LeaveManagementSystem;integrated Security=true";
+>>>>>>> b50c971c075e3ed5e5f1223684e3e9cdcd260557
         public LoadFromDatabase() { }
 
         public void LoadAllRequests(GridView gridView)
@@ -17,7 +21,7 @@ namespace LMS48.Classes
             using(SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("Select * from ViewAll", con))
+                using (SqlCommand cmd = new SqlCommand("Select * from ViewAll order by SubmissionDate DESC", con))
                 {
                     SqlDataReader dr = cmd.ExecuteReader();
                     gridView.DataSource = dr;
@@ -53,6 +57,21 @@ namespace LMS48.Classes
                     dropDown.DataSource = rdr;
                     dropDown.DataValueField = "id";
                     dropDown.DataTextField = "Type";
+                    dropDown.DataBind();
+                }
+            }
+        }
+        public void BindCancelReasonDropdown(DropDownList dropDown)
+        {
+            using (SqlConnection con = new SqlConnection(connection))
+            {
+                con.Open();
+                using (SqlCommand command = new SqlCommand("Select * from CancelationReasons",con))
+                {
+                    SqlDataReader rdr = command.ExecuteReader();
+                    dropDown.DataSource = rdr;
+                    dropDown.DataValueField= "id";
+                    dropDown.DataTextField= "reason";
                     dropDown.DataBind();
                 }
             }
