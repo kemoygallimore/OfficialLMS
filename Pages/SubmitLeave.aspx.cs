@@ -89,14 +89,58 @@ namespace LMS48
         }
 
         protected void Submitbtn_Click(object sender, EventArgs e)
-        {            
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal(\"Success\", \"Your Leave Request Have Been Submitted!\", \"success\");\r\n", true);
-            //Response.Redirect("/Pages/SubmitLeave.aspx");
+        {
+            string Employee = EmpIdTextbx.Text;
+            if(!(EmpNameTxtBx.Text == "" || EmpNameTxtBx.Text=="Employee Not Found"))
+            {
+                using (SqlConnection con = new SqlConnection(database.connection))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("Select id, Fname, Lname from Employee Where EmployeeID = @Employee", con))
+                    {
+                        cmd.Parameters.AddWithValue("@Employee", Employee);
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            id = reader.GetInt32(0);
+                        }
+                    }
+                    con.Close();
+                }
+
+                using (SqlConnection con = new SqlConnection(database.connection))
+                {
+                    con.Open();
+                    using (SqlCommand insert = new SqlCommand("InsertLeaveRequest", con))
+                    {
+
+                        insert.CommandType = CommandType.StoredProcedure;
+                        insert.Parameters.AddWithValue("@EmpId", id);
+                        insert.Parameters.AddWithValue("@LeaveTypeId", LeaveTypeDrowpdown.SelectedValue);
+                        insert.Parameters.AddWithValue("@SubmissionDate", DateTime.Now.Date);
+                        insert.Parameters.AddWithValue("@StartDate", Convert.ToDateTime(SdateTxtBx.Text));
+                        insert.Parameters.AddWithValue("@EndDate", Convert.ToDateTime(EdateTxtBx.Text));
+                        insert.Parameters.AddWithValue("@TotalDays", Convert.ToInt32(numdayslbl.Text));
+                        insert.Parameters.AddWithValue("@Comments", CommentstxtBx.Text);
+
+                        insert.ExecuteNonQuery();
+                    }
+                    con.Close();
+                }
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Success\", text: \"Your Leave Request Have Been Submitted!\", icon: \"success\" }).then(function() { window.location.href = \"/Pages/SubmitLeave.aspx\"; });", true);
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Failed\", text: \"All Fields With The * Are Required!\", icon: \"error\" });", true);
+            }
+
         }
 
         protected void Clearbtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Pages/SubmitLeave.aspx");
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

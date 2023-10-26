@@ -71,6 +71,9 @@
         <div class="submit_clear_btn">
             <asp:Button ID="Submitbtn" runat="server" Text="Submit" OnClick="Submitbtn_Click"/><asp:Button ID="Clearbtn" runat="server" Text="Clear" OnClick="Clearbtn_Click"/>
         </div>
+        <div>
+            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+        </div>
     </div>
     <div>
         <div>

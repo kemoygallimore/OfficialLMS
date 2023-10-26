@@ -11,7 +11,7 @@ namespace LMS48.Classes
     public class LoadFromDatabase
     {
 
-        public string connection = " data source=WINDOWS-10-PROG\\SQLEXPRESS;initial catalog=LeaveManagementSystem;integrated Security=true";
+        public string connection = " data source=kemoyslenovo\\SQLEXPRESS;initial catalog=LeaveManagementSystem;integrated Security=true";
 
         public LoadFromDatabase() { }
 

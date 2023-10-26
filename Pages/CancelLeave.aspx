@@ -10,7 +10,7 @@
                     <asp:Label ID="Label8" runat="server" Text="Leave ID"></asp:Label>
                 </div>
                 <div>
-                    <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text="Label" Visible="false"></asp:Label>
                 </div>
                 <div>
                     <asp:Label ID="Label2" runat="server" Text="Leave Type"></asp:Label>

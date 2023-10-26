@@ -22,8 +22,7 @@ namespace LMS48
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
-            {
-                
+            {                
                 database.BindLeaveTypeDropdown(LeaveTypeDropdown);
                 database.BindCancelReasonDropdown(CancelReasonDropdown);
             }
@@ -56,18 +55,43 @@ namespace LMS48
 
         protected void Updatebtn_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal(\"Success\", \"The Leave Request Has Been Cancelled!\", \"success\");\r\n", true);
+            if(CancelReasonDropdown.SelectedItem.Text =="Select Reason")
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal(\"Invalid\", \"Please Select A Cancellation Reason!\", \"warning\");\r\n", true);
+            }
+            else
+            {
+                using (SqlConnection con = new SqlConnection(database.connection))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("UPDATE LeaveSubmissionTable SET CancelId = @ReasonID, LeaveStatusId = @StatusID where id = @LeaveId",con))
+                    {
+                        cmd.Parameters.AddWithValue("@ReasonID", CancelReasonDropdown.SelectedValue);
+                        cmd.Parameters.AddWithValue("@StatusID", 6);
+                        cmd.Parameters.AddWithValue("@LeaveId", Convert.ToInt32(Label7.Text));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert",
+                    "swal({\r\n  title: \"Are you sure?\",\r\n " +
+                    "text: \"This request cannot be undone\",\r\n " +
+                    "icon: \"warning\",\r\n  buttons: [\"NO\",\"YES\"],\r\n  dangerMode: true,\r\n})\r\n" +
+                    ".then((willDelete) =>" +
+                    "{\r\n if (willDelete) {\r\n swal(\"Request Cancelled, the page will now refresh!\", {\r\n icon: \"success\",\r\n }).then(function() { window.location.href = \"/Pages/CancelLeave.aspx\"; });\r\n } else {\r\n swal(\"Request Not Cancelled!\");\r\n}\r\n});", true);
+            }
+            //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Success\", text: \"The Leave Request Has Been Cancelled!\", icon: \"success\" }).then(function() { window.location.href = \"/Pages/CancelLeave.aspx\"; });", true);
+            //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal(\"Success\", \"The Leave Request Has Been Cancelled!\", \"success\");\r\n", true);
         }
 
         protected void CancelBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Pages/CancelLeave.aspx");
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void AllRequestsGridview_SelectedIndexChanged(object sender, EventArgs e)
         {
             id = Convert.ToInt32(AllRequestsGridview.Rows[AllRequestsGridview.SelectedIndex].Cells[0].Text);
-            
+            Label7.Visible = true;
             Label7.Text = id.ToString();
             using (SqlConnection con = new SqlConnection(database.connection))
             {
