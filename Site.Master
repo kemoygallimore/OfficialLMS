@@ -61,9 +61,10 @@
                 <div>
                     <a href="/Pages/LookupLeave.aspx">Leave lookup</a>
                     <a href="/Pages/LeaveRequests.aspx">Leave Requests</a>
-                    <a href="/Pages/LeaveAllotments.aspx">Leave Allotments</a>
+                    <!--<a href="/Pages/LeaveAllotments.aspx">Leave Allotments</a> -->
                     <a href="/Pages/SubmitLeave.aspx">Submit Leave</a>
                     <a href="/Pages/CancelLeave.aspx">Cancel Leave</a>
+                    <a href="/test.aspx">Login</a>
                 </div>
             </div>
             <div class="grid siderbarFooter">
@@ -77,7 +78,7 @@
         </div>
         <div class="rightSection">
             <div class="LoginInfo">
-                <span>EmployeeId:---</span><span><asp:Label ID="EmpIdlbl" runat="server" Text="1234"></asp:Label></span>
+                <span>EmployeeId:---</span><span><asp:Label ID="EmpIdlbl" runat="server" Text="4321"></asp:Label></span>
                 <span>Name</span>
                 <span>Department</span>
             </div>

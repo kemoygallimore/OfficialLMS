@@ -9,9 +9,10 @@ namespace LMS48.Classes
     {
         public EmployeeData() { }
         public string Name { get; set; }
-        public int EmployeeID { get; set; } = 0;
+        public string EmployeeID { get; set; }
         public int EmployeeTypeID { get; set; }
-        public string genderid { get; set; }
+        public int genderid { get; set; }
+        public string roletype { get; set; }
 
     }
 }

@@ -22,6 +22,11 @@ namespace LMS48
         {
             if (!IsPostBack)
             {
+                if (Session["EmployeeData"] != null)
+                {
+                    EmployeeData emp = (EmployeeData)Session["EmployeeData"];
+                    ((Label)Master.FindControl("EmpIdlbl")).Text = emp.EmployeeID;
+                }
                 database.BindLeavestatusDrowpdown(LeaveStatusDropdown);
             }
             masterid = ((Label)Master.FindControl("EmpIdlbl")).Text;

@@ -21,7 +21,17 @@ namespace LMS48
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
+            {
+                if (Session["EmployeeData"] != null)
+                {
+                    EmployeeData emp = (EmployeeData)Session["EmployeeData"];
+                    ((Label)Master.FindControl("EmpIdlbl")).Text = emp.EmployeeID;
+                }
+                
                 database.BindLeaveTypeDropdown(LeaveTypeDrowpdown);
+
+            }
+
         }
 
         protected void CheckID_Click(object sender, EventArgs e)
