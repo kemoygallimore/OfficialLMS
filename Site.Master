@@ -64,7 +64,6 @@
                     <!--<a href="/Pages/LeaveAllotments.aspx">Leave Allotments</a> -->
                     <a href="/Pages/SubmitLeave.aspx">Submit Leave</a>
                     <a href="/Pages/CancelLeave.aspx">Cancel Leave</a>
-                    <a href="/test.aspx">Login</a>
                 </div>
             </div>
             <div class="grid siderbarFooter">
