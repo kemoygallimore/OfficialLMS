@@ -21,7 +21,7 @@ namespace LMS48
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //LoginID = ((Label)Master.FindControl("EmpIdlbl")).Text;
+            LoginID = ((Label)Master.FindControl("EmpIdlbl")).Text;
             if (!IsPostBack)
             {
                 if (Session["EmployeeData"] != null)
@@ -32,9 +32,10 @@ namespace LMS48
                 }
                 database.BindLeavestatusDrowpdown(LeaveStatusDropdown);
                 database.BindLeaveTypeDropdown(LeaveTypeDropdown);
+                database.LoadEmployeeRequests(leaveRequestGV, LoginID);
+
             }
             //database.LoadAllRequests(leaveRequestGV);
-            database.LoadEmployeeRequests(leaveRequestGV, LoginID);
         }
 
         protected void sbutton_Click(object sender, ImageClickEventArgs e)
@@ -89,7 +90,7 @@ namespace LMS48
                     cmd.Parameters.AddWithValue("@EmpID", LoginID);
                     cmd.Parameters.AddWithValue("@type", type);
                     cmd.Parameters.AddWithValue("@status", status);
-                    cmd.Parameters.AddWithValue("@StartDate", Sdatetxtbx.Text);
+                    cmd.Parameters.AddWithValue("@StartDate", sdatecal.SelectedDate.ToShortDateString());
                     cmd.Parameters.AddWithValue("@EndDate", Edatetxtbx.Text);
                     SqlDataReader reader = cmd.ExecuteReader();
                     leaveRequestGV.DataSource = reader;
