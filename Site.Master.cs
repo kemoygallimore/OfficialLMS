@@ -13,5 +13,12 @@ namespace LMS48
         {
 
         }
+
+        protected void exitbtn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("/test.aspx");
+        }
     }
 }

@@ -26,6 +26,8 @@ namespace LMS48
                 {
                     EmployeeData emp = (EmployeeData)Session["EmployeeData"];
                     ((Label)Master.FindControl("EmpIdlbl")).Text = emp.EmployeeID;
+                    ((Label)Master.FindControl("Namelbl")).Text = emp.Name;
+                    ((Label)Master.FindControl("Positionlbl")).Text = emp.roletype;
                 }
                 database.BindLeavestatusDrowpdown(LeaveStatusDropdown);
             }
@@ -72,7 +74,7 @@ namespace LMS48
                 sqlCommand.Parameters.AddWithValue("@newStatus", dropdownselection);
                 sqlCommand.ExecuteNonQuery();
             }
-            database.LoadAllRequests(LeaveRequestsGV);
+            database.LoadAllStaff(LeaveRequestsGV, masterid);
         }
 
         protected void CancelBtn_Click(object sender, EventArgs e)

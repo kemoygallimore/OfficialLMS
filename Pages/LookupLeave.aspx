@@ -38,7 +38,8 @@
         </div>
     </div>
     <div>
-        <asp:GridView ID="leaveRequestGV" runat="server" Width="95%" AutoGenerateColumns="false">
+        <asp:GridView ID="leaveRequestGV" runat="server" Width="95%" AutoGenerateColumns="false" BorderStyle="None">
+            <AlternatingRowStyle BackColor="#016595" />
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="#" />
                 <asp:BoundField DataField="EmployeeID" HeaderText="ID" />
@@ -51,6 +52,8 @@
                 <asp:BoundField DataField="Status" HeaderText="Status" />
                 
             </Columns>
+
+<HeaderStyle CssClass="gridheader"></HeaderStyle>
         </asp:GridView>
     </div>
 </asp:Content>

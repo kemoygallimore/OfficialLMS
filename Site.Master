@@ -68,7 +68,7 @@
             </div>
             <div class="grid siderbarFooter">
                 <div class="exit">
-                    <a href="#"><h4>Exit</h4></a>
+                    <asp:Button ID="exitbtn" runat="server" Text="Exit" OnClick="exitbtn_Click" Cssclass="exit"/>
                 </div>
                 <footer style="font-size:14px">
                     &copy; 2023 - LeaveManagementWeb
@@ -77,9 +77,9 @@
         </div>
         <div class="rightSection">
             <div class="LoginInfo">
-                <span>EmployeeId:---</span><span><asp:Label ID="EmpIdlbl" runat="server" Text="1234"></asp:Label></span>
-                <span>Name</span>
-                <span>Department</span>
+                <span>EmployeeId:---</span><asp:Label CssClass="loginDetails" ID="EmpIdlbl" runat="server" Text="1234"></asp:Label>
+                <span>Name:---</span><asp:Label CssClass="loginDetails" ID="Namelbl" runat="server" Text="Label"></asp:Label>
+                <span>Position:---</span><asp:Label CssClass="loginDetails" ID="Positionlbl" runat="server" Text="Label"></asp:Label>
             </div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"> </asp:ContentPlaceHolder>
         </div>

@@ -24,7 +24,8 @@
            
         </div>
         <div>
-            <asp:GridView ID="LeaveRequestsGV" runat="server" AutoGenerateColumns="False" Width="95%" OnSelectedIndexChanged="LeaveRequestsGV_SelectedIndexChanged">
+            <asp:GridView ID="LeaveRequestsGV" runat="server" AutoGenerateColumns="False" Width="95%" BorderStyle="None" OnSelectedIndexChanged="LeaveRequestsGV_SelectedIndexChanged">
+                <AlternatingRowStyle BackColor="#016595" />
                 <Columns>
                     <asp:BoundField DataField="id" HeaderText="#" />
                     <asp:BoundField DataField="EmployeeID" HeaderText="ID" />
@@ -35,6 +36,7 @@
                     <asp:BoundField DataField="status" HeaderText="Status" />
                     <asp:CommandField ShowSelectButton="True" />
                 </Columns>
+                <HeaderStyle CssClass="gridheader"></HeaderStyle>
             </asp:GridView>
         </div>
     </div>

@@ -71,12 +71,12 @@ a {
     padding-bottom: 70px;
 }
 
-    .sidebar h4 {
-        padding: .6em 0px;
-        margin: 0px;
-        text-align: center;
-        font-size: 18px;
-    }
+.sidebar h4, .sidebar input {
+    padding: .6em 0px;
+    margin: 0px;
+    text-align: center;
+    font-size: 18px;
+}
 
 .PageNav {
     padding-top: 8em
@@ -112,9 +112,10 @@ a {
     align-content: end;
 }
 
-.exit h4 {
+.exit h4, .exit input {
     background-color: var(--exit-bg);
     color: var(--blue-white);
+    width:100% !important;
 }
 
 .sidebar a {
@@ -215,7 +216,12 @@ input[type="image" i]{
 .LoginInfo {
     padding: 20px 0px 60px 0px;
 }
-
+.LoginInfo span:nth-child(odd) {
+    font-weight:600
+}
+.LoginInfo span:nth-child(even){
+    padding-right:1.5em;
+}
 .fire {
     position: absolute !important;
     background: var(--lightBlue);
@@ -343,10 +349,10 @@ input[type="submit" i]{
 }
 
 
-.loginbox input[type="text" i]{
-    width:250px;
-    padding:5px;
-    font-size:16px
+.loginbox input[type="text" i], .loginbox input[type="password" i] {
+    width: 250px;
+    padding: 5px;
+    font-size: 16px
 }
 
 .loginbox div:nth-child(4) {
@@ -363,9 +369,13 @@ input[type="submit" i]{
     padding-top:1em
 }
 
-
 .loginbox input[type="submit" i] {
     height: min-content;
     padding: 7px;
     border-radius:5px
+}
+
+.gridheader {
+    color: White;
+    background-color: #004262;
 }

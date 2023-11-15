@@ -15,6 +15,15 @@ namespace LMS48
     {
 
         /// <summary>
+        /// exitbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button exitbtn;
+
+        /// <summary>
         /// EmpIdlbl control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace LMS48
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label EmpIdlbl;
+
+        /// <summary>
+        /// Namelbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Namelbl;
+
+        /// <summary>
+        /// Positionlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Positionlbl;
 
         /// <summary>
         /// MainContent control.

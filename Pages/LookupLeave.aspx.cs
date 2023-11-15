@@ -28,6 +28,9 @@ namespace LMS48
                 {
                     EmployeeData emp = (EmployeeData)Session["EmployeeData"];
                     ((Label)Master.FindControl("EmpIdlbl")).Text = emp.EmployeeID;
+                    ((Label)Master.FindControl("Namelbl")).Text = emp.Name;
+                    ((Label)Master.FindControl("Positionlbl")).Text = emp.roletype;
+
                     LoginID = emp.EmployeeID;
                 }
                 database.BindLeavestatusDrowpdown(LeaveStatusDropdown);
@@ -85,7 +88,6 @@ namespace LMS48
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand("FilterbyAllFields", conn))
                 {
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@EmpID", LoginID);
                     cmd.Parameters.AddWithValue("@type", type);

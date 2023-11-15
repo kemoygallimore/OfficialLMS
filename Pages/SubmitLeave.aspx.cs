@@ -26,6 +26,8 @@ namespace LMS48
                 {
                     EmployeeData emp = (EmployeeData)Session["EmployeeData"];
                     ((Label)Master.FindControl("EmpIdlbl")).Text = emp.EmployeeID;
+                    ((Label)Master.FindControl("Namelbl")).Text = emp.Name;
+                    ((Label)Master.FindControl("Positionlbl")).Text = emp.roletype;
                 }
                 
                 database.BindLeaveTypeDropdown(LeaveTypeDrowpdown);

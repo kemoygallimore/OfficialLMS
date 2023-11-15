@@ -65,7 +65,8 @@
                 <asp:Label ID="Label6" runat="server" Text="Cancellation Reason"></asp:Label><asp:DropDownList ID="CancelReasonDropdown" runat="server"></asp:DropDownList>
             </p>
             <p>
-                <asp:GridView ID="AllRequestsGridview" runat="server" AutoGenerateColumns="False" Width="100%" OnSelectedIndexChanged="AllRequestsGridview_SelectedIndexChanged">
+                <asp:GridView ID="AllRequestsGridview" runat="server" AutoGenerateColumns="False" Width="100%" BorderStyle="None" OnSelectedIndexChanged="AllRequestsGridview_SelectedIndexChanged">
+                    <AlternatingRowStyle BackColor="#016595" />                    
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="#" />
                         <asp:BoundField DataField="SubmissionDate" HeaderText="Date Submitted" DataFormatString="{0:MMM/dd/yyyy}" />
@@ -77,6 +78,7 @@
                         <asp:CommandField ShowSelectButton="True" />
 
                     </Columns>
+                    <HeaderStyle CssClass="gridheader"></HeaderStyle>
                 </asp:GridView>
             </p>
         </div>

@@ -6,6 +6,9 @@
 <head runat="server">
     <title></title>
     <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Styles/sweetalert.css" rel="stylesheet" />
+<script src="Scripts/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -20,19 +23,18 @@
 
                         </div>
                         <div class="LoginFields">
-                            <asp:TextBox ID="Passwordtxtbx" runat="server" Placeholder="Password" ControlToValidate="Passwordtxtbx"></asp:TextBox>
+                            <asp:TextBox ID="Passwordtxtbx" runat="server" Placeholder="Password" ControlToValidate="Passwordtxtbx" TextMode="Password"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Password field cannot be empty" ControlToValidate="Passwordtxtbx" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                     
                     <div>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
-                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     </div>
                     <div>
                         <asp:Button ID="loginbtn" runat="server" Text="Login" OnClick="loginbtn_Click" />
                     </div>
-                    <div><a>Forgot Password</a></div>
+                    <!--<div><a>Forgot Password</a></div>-->
                 </div>
             </div>
         </div>
