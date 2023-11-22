@@ -68,7 +68,6 @@ a {
     height: 100vh;
     position: fixed;
     display: grid;
-    padding-bottom: 70px;
 }
 
 .sidebar h4, .sidebar input {

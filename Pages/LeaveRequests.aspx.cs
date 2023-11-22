@@ -40,20 +40,29 @@ namespace LMS48
             string index = LeaveRequestsGV.Rows[LeaveRequestsGV.SelectedIndex].Cells[0].Text;
             string name = LeaveRequestsGV.Rows[LeaveRequestsGV.SelectedIndex].Cells[2].Text;
             string status = LeaveRequestsGV.Rows[LeaveRequestsGV.SelectedIndex].Cells[6].Text;
-            Label1.Visible = true;
-            NameTxtBx.Text = name;
-            if (status == "Approved")
-                LeaveStatusDropdown.SelectedValue = "2";
-            else if (status == "Denied")
-                LeaveStatusDropdown.SelectedValue = "3";
-            else if (status == "Escalated")
-                LeaveStatusDropdown.SelectedValue = "4";
-            else if (status == "Pending")
-                LeaveStatusDropdown.SelectedValue = "5";
-            else
-                LeaveStatusDropdown.SelectedValue = "5";
+            if(status=="Cancelled")
+            {
+                //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Failed\", text: text: \"You are not able to change the status of a Cancelled Order. If the order was cancelled in error, then please submit a new request\",\r\n, icon: \"error\" });", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Failed\", text: \"Can not change an request that is already cancelled\", icon: \"error\" });", true);
 
-            Label1.Text = index;            
+            }
+            else
+            {
+                Label1.Visible = true;
+                NameTxtBx.Text = name;
+                if (status == "Approved")
+                    LeaveStatusDropdown.SelectedValue = "2";
+                else if (status == "Denied")
+                    LeaveStatusDropdown.SelectedValue = "3";
+                else if (status == "Escalated")
+                    LeaveStatusDropdown.SelectedValue = "4";
+                else if (status == "Pending")
+                    LeaveStatusDropdown.SelectedValue = "5";
+                else
+                    LeaveStatusDropdown.SelectedValue = "5";
+
+                Label1.Text = index;
+            }
         }
 
         protected void LeaveStatusDropdown_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,23 +72,34 @@ namespace LMS48
 
         protected void Updatebtn_Click(object sender, EventArgs e)
         {
-            id = Convert.ToInt32(Label1.Text);
-            dropdownselection = LeaveStatusDropdown.SelectedValue;
-            SqlConnection con = new SqlConnection(database.connection);
-            con.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("UpdateLeaveStatus", con))
+            try
             {
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@LeaveID", id);
-                sqlCommand.Parameters.AddWithValue("@newStatus", dropdownselection);
-                sqlCommand.ExecuteNonQuery();
+                
+                id = Convert.ToInt32(Label1.Text);
+                dropdownselection = LeaveStatusDropdown.SelectedValue;
+                SqlConnection con = new SqlConnection(database.connection);
+                con.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("UpdateLeaveStatus", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@LeaveID", id);
+                    sqlCommand.Parameters.AddWithValue("@newStatus", dropdownselection);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                database.LoadAllStaff(LeaveRequestsGV, masterid);
+                
             }
-            database.LoadAllStaff(LeaveRequestsGV, masterid);
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         protected void CancelBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

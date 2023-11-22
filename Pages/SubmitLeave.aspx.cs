@@ -97,7 +97,6 @@ namespace LMS48
                 numdayslbl.Visible = true;
                 numdayslbl.Text = timedifference.Days.ToString();
             }
-
         }
 
         protected void Submitbtn_Click(object sender, EventArgs e)
@@ -122,7 +121,7 @@ namespace LMS48
                     con.Close();
                 }
 
-                /*using (SqlConnection con = new SqlConnection(database.connection))
+                using (SqlConnection con = new SqlConnection(database.connection))
                 {
                     con.Open();
                     using (SqlCommand insert = new SqlCommand("InsertLeaveRequest", con))
@@ -140,15 +139,13 @@ namespace LMS48
                         insert.ExecuteNonQuery();
                     }
                     con.Close();
-                }*/
+                }
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Success\", text: \"Your Leave Request Have Been Submitted!\", icon: \"success\" }).then(function() { window.location.href = \"/Pages/SubmitLeave.aspx\"; });", true);
             }
             else
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Failed\", text: \"All Fields With The * Are Required!\", icon: \"error\" });", true);
             }
-
-
         }
 
         protected void Clearbtn_Click(object sender, EventArgs e)
