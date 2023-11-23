@@ -35,6 +35,10 @@ namespace LMS48
                 database.BindCancelReasonDropdown(CancelReasonDropdown);
             }
             database.LoadAllRequests(AllRequestsGridview);
+            if (((Label)Master.FindControl("Namelbl")).Text == "Label")
+            {
+                Response.Redirect("/test.aspx");
+            }
         }
 
         protected void sbutton_Click(object sender, ImageClickEventArgs e)

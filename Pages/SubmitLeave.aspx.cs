@@ -33,6 +33,10 @@ namespace LMS48
                 database.BindLeaveTypeDropdown(LeaveTypeDrowpdown);
 
             }
+            if (((Label)Master.FindControl("Namelbl")).Text == "Label")
+            {
+                Response.Redirect("/test.aspx");
+            }
 
         }
 

@@ -36,6 +36,10 @@ namespace LMS48
                 database.BindLeavestatusDrowpdown(LeaveStatusDropdown);
                 database.BindLeaveTypeDropdown(LeaveTypeDropdown);
                 database.LoadEmployeeRequests(leaveRequestGV, LoginID);
+                if(((Label)Master.FindControl("Namelbl")).Text=="Label")
+                {
+                    Response.Redirect("/test.aspx");
+                }
 
             }
             //database.LoadAllRequests(leaveRequestGV);

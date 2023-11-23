@@ -78,7 +78,11 @@ a {
 }
 
 .PageNav {
-    padding-top: 8em
+    
+}
+#logo {
+    width: 100%;
+    padding: 1em 10px;
 }
 
 .PageNav a {
@@ -127,7 +131,7 @@ h1, h1, h3, h4, h5 {
 }
 
 .rightSection {
-    margin-left: 250px;
+    margin-left: 200px;
 }
 
 .grid {
@@ -213,7 +217,14 @@ input[type="image" i]{
 }
 
 .LoginInfo {
-    padding: 20px 0px 60px 0px;
+    padding: 20px 0px 20px 50px;
+    margin-bottom: 40px;
+    background: var(--bg-color);
+}
+.Content{
+    padding-left:50px;
+    padding-bottom:4em;
+    padding-right:20px;
 }
 .LoginInfo span:nth-child(odd) {
     font-weight:600

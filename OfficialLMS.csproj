@@ -103,6 +103,7 @@
     <Content Include="Assets\img\business.jpeg" />
     <Content Include="Assets\img\calendar icon.png" />
     <Content Include="Assets\img\calendar.png" />
+    <Content Include="Assets\img\logo.png" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />

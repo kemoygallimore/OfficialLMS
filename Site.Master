@@ -58,6 +58,7 @@
         </nav>-->
         <div class="sidebar">
             <div class="PageNav">
+                <img id="logo" src="/Assets/img/logo.png" />
                 <div>
                     <a href="/Pages/LookupLeave.aspx">Leave lookup</a>
                     <a href="/Pages/LeaveRequests.aspx">Leave Requests</a>
@@ -81,7 +82,10 @@
                 <span>Name:---</span><asp:Label CssClass="loginDetails" ID="Namelbl" runat="server" Text="Label"></asp:Label>
                 <span>Position:---</span><asp:Label CssClass="loginDetails" ID="Positionlbl" runat="server" Text="Label"></asp:Label>
             </div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"> </asp:ContentPlaceHolder>
+            <div class="Content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"> </asp:ContentPlaceHolder>
+
+            </div>
         </div>
     </form>
     <asp:PlaceHolder runat="server">

@@ -33,6 +33,10 @@ namespace LMS48
             }
             masterid = ((Label)Master.FindControl("EmpIdlbl")).Text;
             database.LoadAllStaff(LeaveRequestsGV, masterid);
+            if (((Label)Master.FindControl("Namelbl")).Text == "Label")
+            {
+                Response.Redirect("/test.aspx");
+            }
         }
 
         protected void LeaveRequestsGV_SelectedIndexChanged(object sender, EventArgs e)
