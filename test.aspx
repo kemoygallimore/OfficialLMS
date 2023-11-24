@@ -20,7 +20,6 @@
                         <div class="LoginFields">
                             <asp:TextBox ID="Usernametxtbx" runat="server" placeholder="Username" CausesValidation="False" ValidationGroup="vg"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Username field cannot be empty" ControlToValidate="Usernametxtbx" ForeColor="Red">*</asp:RequiredFieldValidator>
-
                         </div>
                         <div class="LoginFields">
                             <asp:TextBox ID="Passwordtxtbx" runat="server" Placeholder="Password" ControlToValidate="Passwordtxtbx" TextMode="Password"></asp:TextBox>

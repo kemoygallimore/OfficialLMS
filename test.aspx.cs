@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -54,36 +56,7 @@ namespace LMS48
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Failed\", text: \"Email or Password is incorrect\", icon: \"error\" });", true);
 
                 }
-
-
-            }
-
-
-            //Label1.Text = "Button was clicked";
-            //E.EmployeeID = Usernametxtbx.Text;
-            /*using (SqlConnection con = new SqlConnection(database.connection))
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("Select * from ViewEmployees where EmployeeID = @user",con))
-                {
-                    cmd.Parameters.AddWithValue("@User", E.EmployeeID);
-                    SqlDataReader rdr = cmd.ExecuteReader();
-                   
-                    if(rdr.HasRows)
-                    {
-                        rdr.Read();
-                        E.EmployeeID = rdr.GetString(1);
-                        E.Name = rdr.GetString(2) + " " + rdr.GetString(3);
-                        E.roletype = rdr.GetString(5);
-                        Session["EmployeeData"] = E;
-                        Response.Redirect("/Pages/LookupLeave.aspx");
-                    }
-                    else
-                    {
-                        Label1.Text = "Employee Not Found";
-                    }
-                }
-            } */           
+            }          
         }
     }
 }

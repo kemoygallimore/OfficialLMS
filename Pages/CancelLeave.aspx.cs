@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -84,15 +86,32 @@ namespace LMS48
                         cmd.ExecuteNonQuery();
                     }
                 }
+                string Emailsubject = "Your " + LeaveTypeDropdown.Text + " has been cancelled";
+
+                string EmailBody =
+                    "Please login to see the details of your cancelled request"
+                    ;
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress("themecaverse@gmail.com");
+                msg.To.Add("kemoygallimore@gmail.com");
+                msg.Subject = Emailsubject;
+                msg.Body = EmailBody;
+
+                SmtpClient smt = new SmtpClient();
+                smt.Host = "smtp.gmail.com";
+                smt.Port = 587;
+                smt.Credentials = new NetworkCredential("themecaverse@gmail.com", "atce lojt hqzz fvou");
+                smt.EnableSsl = true;
+
+                smt.Send(msg);
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert",
                     "swal({\r\n  title: \"Are you sure?\",\r\n " +
                     "text: \"This request cannot be undone\",\r\n " +
                     "icon: \"warning\",\r\n  buttons: [\"NO\",\"YES\"],\r\n  dangerMode: true,\r\n})\r\n" +
                     ".then((willDelete) =>" +
                     "{\r\n if (willDelete) {\r\n swal(\"Request Cancelled, the page will now refresh!\", {\r\n icon: \"success\",\r\n }).then(function() { window.location.href = \"/Pages/CancelLeave.aspx\"; });\r\n } else {\r\n swal(\"Request Not Cancelled!\");\r\n}\r\n});", true);
+
             }
-            //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Success\", text: \"The Leave Request Has Been Cancelled!\", icon: \"success\" }).then(function() { window.location.href = \"/Pages/CancelLeave.aspx\"; });", true);
-            //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal(\"Success\", \"The Leave Request Has Been Cancelled!\", \"success\");\r\n", true);
         }
 
         protected void CancelBtn_Click(object sender, EventArgs e)

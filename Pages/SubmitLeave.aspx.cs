@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -105,6 +107,7 @@ namespace LMS48
 
         protected void Submitbtn_Click(object sender, EventArgs e)
         {
+
             string Employee = EmpIdTextbx.Text;
             if(!(EmpNameTxtBx.Text == "" || EmpNameTxtBx.Text=="Employee Not Found"))
             {
@@ -144,7 +147,33 @@ namespace LMS48
                     }
                     con.Close();
                 }
+
+                string Emailsubject = "Approval Needed for "+ EmpNameTxtBx.Text;
+
+                string EmailBody =
+                    "Employee ID: " + EmpIdTextbx.Text +
+                    "\nName: " + EmpNameTxtBx.Text +
+                    "\nLeave Type: " + LeaveTypeDrowpdown.Text+
+                    "\nStart Date: " + SdateTxtBx.Text+
+                    "\nEnd Date: " + EdateTxtBx.Text+
+                    "\nTotal Days: " +numdayslbl.Text+
+                    "\nComment : " +CommentstxtBx.Text                    
+                    ;
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress("themecaverse@gmail.com");
+                msg.To.Add("kemoygallimore@gmail.com");
+                msg.Subject = Emailsubject;
+                msg.Body = EmailBody;
+
+                SmtpClient smt = new SmtpClient();
+                smt.Host = "smtp.gmail.com";
+                smt.Port = 587;
+                smt.Credentials = new NetworkCredential("themecaverse@gmail.com", "atce lojt hqzz fvou");
+                smt.EnableSsl = true;
+
+                smt.Send(msg);
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Success\", text: \"Your Leave Request Have Been Submitted!\", icon: \"success\" }).then(function() { window.location.href = \"/Pages/SubmitLeave.aspx\"; });", true);
+
             }
             else
             {
