@@ -22,7 +22,6 @@ namespace LMS48
         {
 
         }
-
         protected void loginbtn_Click(object sender, EventArgs e)
         {
             //create a new sql connection string with the string connection being a varaible database object
@@ -54,9 +53,8 @@ namespace LMS48
                 else
                 {
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Failed\", text: \"Email or Password is incorrect\", icon: \"error\" });", true);
-
                 }
             }          
-        }
+        }        
     }
 }

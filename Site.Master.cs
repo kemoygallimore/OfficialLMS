@@ -11,7 +11,14 @@ namespace LMS48
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Positionlbl.Text == "Staff")
+            {
+                RequestLink.Visible = true;
+            }
+            else
+            {
+                RequestLink.Visible = false;
+            }
         }
 
         protected void exitbtn_Click(object sender, EventArgs e)

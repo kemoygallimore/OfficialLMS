@@ -33,9 +33,11 @@
                     <div>
                         <asp:Button ID="loginbtn" runat="server" Text="Login" OnClick="loginbtn_Click" />
                     </div>
-                    <!--<div><a>Forgot Password</a></div>-->
+                    <!--<div><a>Forgot Password</a></div>-->                    
                 </div>
+                
             </div>
+            
         </div>
     </form>
 </body>

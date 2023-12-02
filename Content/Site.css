@@ -58,6 +58,10 @@ a {
     color: var(--blue-white)
 }
 
+.showitem {
+    display: none !important;
+}
+
 .nav-link {
     color: var(--blue-white)
 }
@@ -389,3 +393,4 @@ input[type="submit" i]{
     color: White;
     background-color: #004262;
 }
+

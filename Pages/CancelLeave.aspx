@@ -40,13 +40,7 @@
                 </div>
             </div>
             <div>
-                <div>
-                    <asp:Label ID="Label1" runat="server" Text="Attachments"></asp:Label>
-                </div>
-                <div>
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
-                </div>
-            
+                
                 <div>
                     <asp:Label ID="Label5" runat="server" Text="Additional Comments"></asp:Label>
                 </div>

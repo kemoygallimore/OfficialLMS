@@ -60,11 +60,11 @@
             <div class="PageNav">
                 <img id="logo" src="/Assets/img/logo.png" />
                 <div>
-                    <a href="/Pages/LookupLeave.aspx">Leave lookup</a>
-                    <a href="/Pages/LeaveRequests.aspx">Leave Requests</a>
+                    <asp:HyperLink ID="LookupLink" runat="server" NavigateUrl="~/Pages/LookupLeave.aspx">Leave lookup</asp:HyperLink>
+                    <asp:HyperLink ID="RequestLink" runat="server" NavigateUrl="~/Pages/LeaveRequests.aspx">Leave Requests</asp:HyperLink>
+                    <asp:HyperLink ID="SubmitLink" runat="server" NavigateUrl="~/Pages/SubmitLeave.aspx">Submit Leave</asp:HyperLink>
+                    <asp:HyperLink ID="CancelLink" runat="server" NavigateUrl="~/Pages/CancelLeave.aspx">Cancel Leave</asp:HyperLink>
                     <!--<a href="/Pages/LeaveAllotments.aspx">Leave Allotments</a> -->
-                    <a href="/Pages/SubmitLeave.aspx">Submit Leave</a>
-                    <a href="/Pages/CancelLeave.aspx">Cancel Leave</a>
                 </div>
             </div>
             <div class="grid siderbarFooter">

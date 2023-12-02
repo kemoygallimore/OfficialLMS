@@ -48,12 +48,7 @@
         <div>
             <asp:Label ID="numdayslbl" runat="server" Text="Label" Visible="false"></asp:Label>
         </div>
-        <div>
-            <asp:Label ID="Label8" runat="server" Text="Attachments"></asp:Label>
-        </div>
-        <div>
-            <asp:FileUpload ID="FileUpload1" runat="server" />
-        </div>
+        
     </div>
     <div style="padding-top:15px">
 
