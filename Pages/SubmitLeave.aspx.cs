@@ -107,7 +107,6 @@ namespace LMS48
 
         protected void Submitbtn_Click(object sender, EventArgs e)
         {
-
             string Employee = EmpIdTextbx.Text;
             if(!(EmpNameTxtBx.Text == "" || EmpNameTxtBx.Text=="Employee Not Found"))
             {
@@ -133,7 +132,6 @@ namespace LMS48
                     con.Open();
                     using (SqlCommand insert = new SqlCommand("InsertLeaveRequest", con))
                     {
-
                         insert.CommandType = CommandType.StoredProcedure;
                         insert.Parameters.AddWithValue("@EmpId", id);
                         insert.Parameters.AddWithValue("@LeaveTypeId", LeaveTypeDrowpdown.SelectedValue);
@@ -142,7 +140,6 @@ namespace LMS48
                         insert.Parameters.AddWithValue("@EndDate", Convert.ToDateTime(EdateTxtBx.Text));
                         insert.Parameters.AddWithValue("@TotalDays", Convert.ToInt32(numdayslbl.Text));
                         insert.Parameters.AddWithValue("@Comments", CommentstxtBx.Text);
-
                         insert.ExecuteNonQuery();
                     }
                     con.Close();
@@ -162,6 +159,7 @@ namespace LMS48
                 MailMessage msg = new MailMessage();
                 msg.From = new MailAddress("themecaverse@gmail.com");
                 msg.To.Add("kemoygallimore@gmail.com");
+                msg.CC.Add("kgallimore20j@vtdi.edu.jm");
                 msg.Subject = Emailsubject;
                 msg.Body = EmailBody;
 
@@ -172,8 +170,7 @@ namespace LMS48
                 smt.EnableSsl = true;
 
                 smt.Send(msg);
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Success\", text: \"Your Leave Request Have Been Submitted!\", icon: \"success\" }).then(function() { window.location.href = \"/Pages/SubmitLeave.aspx\"; });", true);
-
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal({ title: \"Success\", text: \"Your Leave Request Have Been Submitted!\nAn email has been sent to you and your manager with the details\", icon: \"success\" }).then(function() { window.location.href = \"/Pages/SubmitLeave.aspx\"; });", true);
             }
             else
             {
